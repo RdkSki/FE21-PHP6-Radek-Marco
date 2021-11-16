@@ -38,6 +38,9 @@ while ($row = $result->fetch_array(MYSQLI_ASSOC)){
         </style>
     </head>
     <body>
+        <?php 
+        $_POST["supplier"];
+        ?>
         <fieldset>
             <legend class='h2'>Add Product</legend>
             <form action="actions/a_create.php" method= "post" enctype="multipart/form-data">
