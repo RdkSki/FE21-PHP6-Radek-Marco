@@ -41,7 +41,7 @@ height: 200px;
 <body>
 <div class="container">
     <div class="hero">
-        <img class="userImage" src="pictures/<?php echo $row['picture']; ?>" alt="<?php echo $row['first_name']; ?>">
+        <img class="userImage" src="pictures/users/<?php echo $row['picture']; ?>" alt="<?php echo $row['first_name']; ?>">
         <p class="text-white" >Hi <?php echo $row['first_name']; ?></p>
     </div>
     <a href="logout.php?logout">Sign Out</a>

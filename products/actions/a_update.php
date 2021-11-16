@@ -23,9 +23,9 @@ if ($_POST) {
     //variable for upload pictures errors is initialized
     $uploadError = '';
 
-    $picture = file_upload($_FILES['picture']);//file_upload() called  
+    $picture = file_upload($_FILES['picture'], 'product');//file_upload() called  
     if($picture->error===0){
-        ($_POST["picture"]=="product.png")?: unlink("../pictures/$_POST[picture]");           
+        ($_POST["picture"]=="product.png")?: unlink("../../pictures/products/$_POST[picture]");           
         $sql = "UPDATE products SET name = '$name', price = $price, picture = '$picture->fileName', fk_supplierId = $supplier WHERE id = {$id}";
     }else{
         $sql = "UPDATE products SET name = '$name', price = $price, fk_supplierId = $supplier WHERE id = {$id}";

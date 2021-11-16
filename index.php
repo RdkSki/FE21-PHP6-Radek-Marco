@@ -37,7 +37,7 @@ if (isset($_POST['btn-login'])) {
     if (empty($pass)) {
         $error = true;
         $passError = "Please enter your password.";
-    }
+    } 
 
     // if there's no error, continue to login
     if (!$error) {

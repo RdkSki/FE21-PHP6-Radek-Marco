@@ -29,7 +29,7 @@ if(isset($_SESSION["user"])){
 if ($_POST) {
     $id = $_POST['id'];
     $picture = $_POST['picture'];
-    ($picture =="avatar.png")?: unlink("pictures/$picture");
+    ($picture =="avatar.png")?: unlink("pictures/users/$picture");
 
    $sql = "DELETE FROM user WHERE id = {$id}";
    if ($connect->query($sql) === TRUE) {

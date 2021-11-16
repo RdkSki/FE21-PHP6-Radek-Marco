@@ -22,7 +22,7 @@ $tbody = '';
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
         $tbody .= "<tr>
-            <td><img class='img-thumbnail rounded-circle' src='pictures/" . $row['picture'] . "' alt=" . $row['first_name'] . "></td>
+            <td><img class='img-thumbnail rounded-circle' src='pictures/users/" . $row['picture'] . "' alt=" . $row['first_name'] . "></td>
             <td>" . $row['first_name'] . " " . $row['last_name'] . "</td>
             <td>" . $row['date_of_birth'] . "</td>
             <td>" . $row['email'] . "</td>
@@ -68,7 +68,7 @@ height: auto;
 <div class="container">
     <div class="row">
         <div class="col-2">
-        <img class="userImage" src="pictures/admavatar.png" alt="Adm avatar">
+        <img class="userImage" src="pictures/users/admavatar.png" alt="Adm avatar">
         <p class="">Administrator</p>
         <a href="logout.php?logout">Sign Out</a>
         <a href="products/index.php">products</a>
