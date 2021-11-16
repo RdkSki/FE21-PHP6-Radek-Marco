@@ -17,8 +17,30 @@ if (!isset($_SESSION['adm']) && !isset($_SESSION['user'])) {
 $res = mysqli_query($connect, "SELECT * FROM user WHERE id=" . $_SESSION['user']);
 $row = mysqli_fetch_array($res, MYSQLI_ASSOC);
 
+
+
+$sql = "SELECT * FROM products";
+$result = mysqli_query($connect ,$sql);
+$tbody=''; //this variable will hold the body for the table
+if(mysqli_num_rows($result)  > 0) {     
+    while($rows = mysqli_fetch_array($result, MYSQLI_ASSOC)){         
+        $tbody .= "<tr>
+            <td><img class='img-thumbnail' src='pictures/products/" .$rows['picture']."' width='20%'></td>
+            <td>" .$rows['name']."</td>
+            <td>" .$rows['price']."</td>
+            <td>" .$rows['status']."</td>
+            <td><a href='update.php?id=" .$rows['id']."'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
+            <a href='delete.php?id=" .$rows['id']."'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
+            <a href='order.php?id=" .$rows['id']."'><button class='btn btn-warning btn-sm' type='button'>Order</button></a></td>
+            </tr>";
+    };
+} else {
+    $tbody =  "<tr><td colspan='5'><center>No Data Available </center></td></tr>";
+}
+
 mysqli_close($connect);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +66,25 @@ height: 200px;
         <img class="userImage" src="pictures/users/<?php echo $row['picture']; ?>" alt="<?php echo $row['first_name']; ?>">
         <p class="text-white" >Hi <?php echo $row['first_name']; ?></p>
     </div>
+ 
     <a href="logout.php?logout">Sign Out</a>
     <a href="update.php?id=<?php echo $_SESSION['user'] ?>">Update your profile</a>
+    <p class='h2'>Products</p>
+            <table class='table table-striped'>
+                <thead class='table-success'>
+                    <tr>
+                        <th>Picture</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?= $tbody;?>
+                </tbody>
+            </table>
 </div>
+
 </body>
 </html>

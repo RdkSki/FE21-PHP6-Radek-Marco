@@ -18,6 +18,7 @@ require_once '../../components/file_upload.php';
 if ($_POST) {    
     $name = $_POST['name'];
     $price = $_POST['price'];
+    $status = $_POST['status'];
     $id = $_POST['id'];
     $supplier = $_POST['supplier'];
     //variable for upload pictures errors is initialized
@@ -26,9 +27,9 @@ if ($_POST) {
     $picture = file_upload($_FILES['picture'], 'product');//file_upload() called  
     if($picture->error===0){
         ($_POST["picture"]=="product.png")?: unlink("../../pictures/products/$_POST[picture]");           
-        $sql = "UPDATE products SET name = '$name', price = $price, picture = '$picture->fileName', fk_supplierId = $supplier WHERE id = {$id}";
+        $sql = "UPDATE products SET name = '$name', price = $price, status='$status', picture = '$picture->fileName', fk_supplierId = $supplier WHERE id = {$id}";
     }else{
-        $sql = "UPDATE products SET name = '$name', price = $price, fk_supplierId = $supplier WHERE id = {$id}";
+        $sql = "UPDATE products SET name = '$name', price = $price, status='$status', fk_supplierId = $supplier WHERE id = {$id}";
     }    
     if (mysqli_query($connect, $sql) === TRUE) {
         $class = "success";

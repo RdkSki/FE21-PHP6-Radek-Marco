@@ -54,6 +54,10 @@ while ($row = $result->fetch_array(MYSQLI_ASSOC)){
                         <td><input class='form-control' type="number" name= "price" placeholder="Price" step="any" /></td>
                     </tr>
                     <tr>
+                        <th>Status</th>
+                        <td><input class='form-control' type="text" name= "status" placeholder="Price" step="any" /></td>
+                    </tr>
+                    <tr>
                         <th>Picture</th>
                         <td><input class='form-control' type="file" name="picture" /></td>
                     </tr>

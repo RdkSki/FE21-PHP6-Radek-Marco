@@ -23,6 +23,7 @@ if ($_GET['id']) {
         $name = $data['name'];
         $price = $data['price'];
         $picture = $data['picture'];
+        $status = $data['status'];
         $supplier = $data['fk_supplierId'];
 
         $resultSup = mysqli_query($connect, "SELECT * FROM supplier");
@@ -76,6 +77,10 @@ if ($_GET['id']) {
                     <tr>
                         <th>Price</th>
                         <td><input class="form-control" type= "number" name="price" step="any"  placeholder="Price" value ="<?php echo $price ?>" /></td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td><input class="form-control" type= "text" name="status" step="any"  placeholder="Status" value ="<?php echo $status ?>" /></td>
                     </tr>
                     <tr>
                         <th>Picture</th>
