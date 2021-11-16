@@ -39,7 +39,7 @@ while ($row = $result->fetch_array(MYSQLI_ASSOC)){
     </head>
     <body>
         <?php 
-        $_POST["supplier"];
+        //$_POST["supplier"];
         ?>
         <fieldset>
             <legend class='h2'>Add Product</legend>
