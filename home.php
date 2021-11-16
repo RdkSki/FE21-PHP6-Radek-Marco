@@ -29,8 +29,7 @@ if(mysqli_num_rows($result)  > 0) {
             <td>" .$rows['name']."</td>
             <td>" .$rows['price']."</td>
             <td>" .$rows['status']."</td>
-            <td><a href='update.php?id=" .$rows['id']."'><button class='btn btn-primary btn-sm' type='button'>Edit</button></a>
-            <a href='delete.php?id=" .$rows['id']."'><button class='btn btn-danger btn-sm' type='button'>Delete</button></a>
+            <td>
             <a href='order.php?id=" .$rows['id']."'><button class='btn btn-warning btn-sm' type='button'>Order</button></a></td>
             </tr>";
     };
